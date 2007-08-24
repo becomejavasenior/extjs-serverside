@@ -38,6 +38,7 @@ public class TableHandler extends Handler {
 			try {
 				cls = Class.forName(packagePrefix+tableName);
 				t = (Table) cls.newInstance();
+				t.setFieldName(tableName);
 				tableMap.put(tableName, t);
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
