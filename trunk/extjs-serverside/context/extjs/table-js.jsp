@@ -41,6 +41,17 @@ var <%= tableName %>_grid = new Ext.grid.Grid('<%= tableName %>', {
         ds: <%= tableName %>_dataStore,
         cm: <%= tableName %>_colModel
     });
+    
+<% if (table instanceof PagedTable) { 
+		PagedTable pagedTable = (PagedTable) table;
+		HeaderFooterPanel header = pagedTable.getHeaderPanel();
+		HeaderFooterPanel footer = pagedTable.getFooterPanel();
+%>	
+		<%= header!=null ? header.renderAddToContainer(table) : "" %>
+		<%= footer!=null ? footer.renderAddToContainer(table) : "" %>
+
+<% } %>    
+    
 <%= tableName %>_grid.render();
 
 <%= tableName %>_dataStore.load();	

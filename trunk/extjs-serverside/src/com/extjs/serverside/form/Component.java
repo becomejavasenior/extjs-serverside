@@ -37,7 +37,7 @@ public class Component implements Renderable {
 	
 	protected String renderJavascriptConstructor() {
 		StringBuilder s = new StringBuilder();
-		s.append("var " + fieldName + " = new " + javascriptClass + "("
+		s.append("var " + getFieldName() + " = new " + javascriptClass + "("
 				+ renderConstructorParameters() + "{\n");
 		for (String key : values.keySet()) {
 			s.append("    " + key + " : " + renderValue(values.get(key))
