@@ -37,9 +37,11 @@ public class Component implements Renderable {
 	
 	protected String renderJavascriptConstructor() {
 		StringBuilder s = new StringBuilder();
-		s.append("var "+fieldName+" = new "+javascriptClass + "({\n");
+		s.append("var " + fieldName + " = new " + javascriptClass + "("
+				+ renderConstructorParameters() + "{\n");
 		for (String key : values.keySet()) {
-			s.append("    "+key+" : "+renderValue(values.get(key))+",\n");
+			s.append("    " + key + " : " + renderValue(values.get(key))
+					+ ",\n");
 		}
 		s.append("});\n");
 		return s.toString();
@@ -49,7 +51,11 @@ public class Component implements Renderable {
 		return renderJavascriptConstructor();
 	}
 	
-	public String renderAddToForm(Form form) {
+	public String renderAddToContainer(RenderableContainer form) {
+		return "";
+	}
+	
+	public String renderConstructorParameters() {
 		return "";
 	}
 	
