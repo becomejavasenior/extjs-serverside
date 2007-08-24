@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+ <description>extjs prototype application</description>
+
+ <servlet>
+ 	<servlet-name>ControlServlet</servlet-name>
+ 	<servlet-class>com.extjs.serverside.ControlServlet</servlet-class>
+ 	
+ 	
+ 	<init-param>
+ 		<param-name>handlers</param-name>
+ 		<param-value>sampleTable:table:com.extjs.serverside.sample.table, sampleForm:form:com.extjs.serverside.sample.form</param-value> 
+ 	</init-param>
+ </servlet>
+ 
+ <servlet-mapping>
+   <servlet-name>ControlServlet</servlet-name>
+   <url-pattern>/ext/*</url-pattern>
+ </servlet-mapping>
+</web-app>
