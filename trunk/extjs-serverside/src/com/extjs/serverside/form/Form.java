@@ -3,7 +3,7 @@ package com.extjs.serverside.form;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Form extends Component {
+public class Form extends Component implements RenderableContainer {
 
 	List<Renderable> fieldList = new ArrayList<Renderable>();
 	
@@ -48,7 +48,7 @@ public class Form extends Component {
 	
 	public void addInitScript(final String script) {
 		initScript.add(new Renderable() {
-			public String renderAddToForm(Form form) {
+			public String renderAddToContainer(RenderableContainer form) {
 				return null;
 			}
 			public String renderComponent() {
@@ -69,7 +69,7 @@ public class Form extends Component {
 		builder.append(renderJavascriptConstructor());
 
 		for (Renderable r : fieldList) {
-			builder.append(r.renderAddToForm(this)).append('\n');
+			builder.append(r.renderAddToContainer(this)).append('\n');
 		}
 		
 		
@@ -109,8 +109,8 @@ public class Form extends Component {
 			return s.toString();
 		}
 
-		public String renderAddToForm(Form form) {
-			String s = form.fieldName + ".fieldset(" + "{legend:'" + label + "'},\n";
+		public String renderAddToContainer(RenderableContainer form) {
+			String s = form.getFieldName() + ".fieldset(" + "{legend:'" + label + "'},\n";
 			
 			for (int i=0;i<fields.size(); i++) { 
 				Field field = fields.get(i);

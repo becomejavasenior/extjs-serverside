@@ -28,7 +28,7 @@ public class Field extends Component {
 	}
 
 	@Override
-	public String renderAddToForm(Form form) {
-		return form.fieldName + ".add(" + fieldName + ");\n";
+	public String renderAddToContainer(RenderableContainer form) {
+		return form.getFieldName() + ".add(" + fieldName + ");\n";
 	}
 }
