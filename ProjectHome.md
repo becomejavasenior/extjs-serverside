@@ -1,0 +1,1 @@
+This project is try to provide simple java classes to ease the usage of ExtJS widgets, by strongly defining as much metadata, and automaticly generating the necessary javascript bindings.
